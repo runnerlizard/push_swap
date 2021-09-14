@@ -44,7 +44,7 @@ int				ft_sort_four(int **stack);
 int				ft_sort_many(int **stack);
 int				ft_sort_three (int **stack);
 int				ft_sort_two (int **stack);
-char			**ft_split(char const *str, char ch);
+int				ft_split(int *a, char const *str);
 int				ft_ss (int **stack);
 char			*ft_strjoin (char *s1, char* s2);
 size_t			ft_strlen (const char *str);

@@ -1,6 +1,14 @@
 #include "push_swap.h"
 
-static int ft_move(int **stack, int middle)
+static void ft_sort_rem(int **stack)
+{
+    if (stack[0][0] == 3)
+        ft_sort_three(stack);
+    else
+        ft_sort_four(stack);
+}
+
+static void ft_move(int **stack, int middle)
 {
     int i;
     int j;
@@ -22,7 +30,6 @@ static int ft_move(int **stack, int middle)
             ft_pb(stack);
         }
     }
-    return (0);
 }
 
 int ft_sort_many(int **stack)
@@ -38,6 +45,6 @@ int ft_sort_many(int **stack)
         ft_move(stack, middle);
         i++;
     }
-    ft_print_stack(stack);
+    ft_sort_rem(stack);
     return (0);
 }
