@@ -81,7 +81,7 @@ int main (int argc, char **argv)
 	stack[1][0] = 0;
 	stack[2][0] = 0;
 	ft_movescount(stack);
-	ft_print_stack(stack);
+	//ft_print_stack(stack);
 	ft_sort(stack);
 	return (0);
 }

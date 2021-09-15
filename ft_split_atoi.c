@@ -19,14 +19,14 @@ int	ft_split_atoi(int *a, char const *str)
 			if (str[i++] == '-')
 				sign = -1;
 		if ((str[i] < 48) || (str[i] > 57))
-			return (ft_printf("Error1\n"));
+			return (ft_printf("Error\n"));
 		k = 0;
 		sign = 1;
 		while ((str[i] > 47) && (str[i] < 58))
 		{
 			k = k * 10 + str[i++] - 48;
 			if ((k > INT32_MAX) || (k < INT32_MIN))
-				return (ft_printf("Error2\n"));
+				return (ft_printf("Error\n"));
 		}
 		a[j++] = k * sign;
 	}
@@ -35,7 +35,7 @@ int	ft_split_atoi(int *a, char const *str)
 		i = 0;
 		while ((i++ < j - 1) && (i != j))
 			if (a[i] == a[j])
-				return (ft_printf("Error3\n"));
+				return (ft_printf("Error\n"));
 	}
 	if (a[0] < 2)
 		return (1911);
