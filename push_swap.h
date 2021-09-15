@@ -10,7 +10,6 @@
 # include <stdio.h>
 
 int				fl (char c, unsigned long d);
-long long int	ft_atoi(const char *str);
 void			*ft_calloc(size_t n, size_t s);
 int				ft_count (int d);
 int			  	ft_hex (unsigned long n, int registr);
@@ -44,7 +43,7 @@ int				ft_sort_four(int **stack);
 int				ft_sort_many(int **stack);
 int				ft_sort_three (int **stack);
 int				ft_sort_two (int **stack);
-int				ft_split(int *a, char const *str);
+int				ft_split_atoi(int *a, char const *str);
 int				ft_ss (int **stack);
 char			*ft_strjoin (char *s1, char* s2);
 size_t			ft_strlen (const char *str);

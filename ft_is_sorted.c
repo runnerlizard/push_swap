@@ -5,9 +5,9 @@ int ft_is_sorted (int *a, int n)
 	int i;
 	int count;
 
-	i = 1;
+	i = 0;
 	count = 0;
-	while (i++ < n - 2)
+	while (i++ < n - 1)
 		if (a[i] < a[i + 1])
 			count++;
 	if (count == n - 1)

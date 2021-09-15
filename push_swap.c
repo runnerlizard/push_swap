@@ -59,7 +59,8 @@ static int	ft_input (char **agrv, int *a)
 	i = 1;
 	while (agrv[i])
 		s = ft_strjoin(s, agrv[i++]);
-	ft_split(a, s);
+	if (ft_split_atoi(a, s) != 0)
+		return(0);
 	free(s);
 	i = 0;
 	ft_replace(a);
@@ -72,7 +73,6 @@ int main (int argc, char **argv)
 
 	stack = (int **)malloc(4 * sizeof(int *));
 	stack[0] = (int *)malloc(argc * sizeof(int));
-	ft_printf("\n1\n");
 	if ((argc == 1) || (ft_input(&argv[1], stack[0]) != -1))
 		return (0);
 	stack[1] = (int *)malloc(sizeof(int) * (argc + 1));
