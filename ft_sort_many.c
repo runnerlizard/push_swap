@@ -41,10 +41,59 @@ int ft_sort_many(int **stack)
     middle = 0;
     while (i <= stack[3][0])
     {
-        middle = middle + stack[3][i];
+        middle = middle + stack[3][i++];
         ft_move(stack, middle);
-        i++;
     }
     ft_sort_rem(stack);
+    while (stack[3][0] > 0) //untill there is elements moved to b
+    {
+        i = stack[3][0];
+        stack[3][i + 1] = 0; //to write pb number
+        stack[3][i + 2] = 0; //to write rb number
+        if (stack[3][i] > 3) //it means must move from b to a
+        {
+            middle = (stack[0][0] + 1 + stack[0][0] + stack[3][i]) / 2;
+            j = stack[1][0];
+            while (stack[3][i]-- > 0)
+                if (stack[1][j--] > middle)
+                {
+                    ft_pa(stack);
+                    stack[3][i + 1]--;
+                }
+                else
+                {
+                    ft_rb(stack);
+                    stack[3][i + 2]++;
+                }
+            stack[3][i] = stack[3][i + 2];
+            while (stack[3][i + 2]-- > 0)
+                ft_rrb(stack);
+            stack[3][0]++;
+        }
+        else if (stack[3][i] > 0)
+        //move all heap to a and sort
+        else if (stack[3][i] > -4)
+        //sort rem in a
+        else
+        {
+            middle = (stack[0][0] + 1 + stack[0][0] - stack[3][i]) / 2;
+            j = stack[0][0];
+            while (stack[3][i]++ < 0)
+                if (stack[0][j--] > middle)
+                {
+                    ft_pb(stack);
+                    stack[3][i + 1]++;
+                }
+                else
+                {
+                    ft_ra(stack);
+                    stack[3][i + 2]--;
+                }
+            stack[3][i] = stack[3][i + 2];
+            while (stack[3][i + 2]++ < 0)
+                ft_rra(stack);
+            stack[3][0]++;
+        }
+    }
     return (0);
 }
