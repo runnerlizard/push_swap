@@ -76,12 +76,12 @@ int main (int argc, char **argv)
 	if ((argc == 1) || (ft_input(&argv[1], stack[0]) != -1))
 		return (0);
 	stack[1] = (int *)malloc(sizeof(int) * (argc + 1));
-	stack[2] = (int *)malloc(30000);
+	stack[2] = (int *)malloc(sizeof(int) * 50);
 	stack[3] = (int *)malloc(sizeof(int) * 10);
 	stack[1][0] = 0;
 	stack[2][0] = 0;
 	ft_movescount(stack);
-	//ft_print_stack(stack);
 	ft_sort(stack);
+	ft_print_stack(stack);
 	return (0);
 }
