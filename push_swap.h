@@ -42,6 +42,7 @@ int				ft_sort (int **stack);
 int				ft_sort_four(int **stack);
 int				ft_sort_many_add(int **stack);
 int             ft_sort_many(int **stack);
+void            ft_sort_rem(int **stack, int j);
 int				ft_sort_three (int **stack);
 int				ft_sort_two (int **stack);
 int				ft_split_atoi(int *a, char const *str);

@@ -5,10 +5,14 @@ static void ft_move_to_a(int **stack, int i)
     int middle;
     int j;
 
-    middle = (stack[0][0] + 1 + stack[0][0] + stack[3][i]) / 2;
+    middle = (2 * stack[1][0] - stack[3][i]) / 2;
     j = stack[1][0];
+    ft_print_stack(stack);
+    ft_printf("middle %d  j %d   stack[3][i] %d\n", middle, j, stack[3][i]);
     while (stack[3][i]-- > 0)
-        if (stack[1][j--] > middle)
+    {
+        ft_printf("stack[1][j] - %d\n", stack[1][j]);
+        if (stack[1][j] > middle)
         {
             ft_pa(stack);
             stack[3][i + 1]--;
@@ -18,6 +22,9 @@ static void ft_move_to_a(int **stack, int i)
             ft_rb(stack);
             stack[3][i + 2]++;
         }
+        j--;
+    }
+    ft_printf("stack[3][i]  %d   stack[3][i + 2] %d\n", stack[3][i], stack[3][i + 2]);
     stack[3][i] = stack[3][i + 2];
     while (stack[3][i + 2]-- > 0)
         ft_rrb(stack);
@@ -72,8 +79,6 @@ static void ft_move_to_b(int **stack, int i)
 int ft_sort_many_add(int **stack)
 {
     int i;
-    int j;
-    int middle;
 
     while (stack[3][0] > 0) //untill there is elements moved to b
     {
