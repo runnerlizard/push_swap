@@ -25,10 +25,10 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 clean:
-	@rm *.o
+	@rm $(OBJ)
 
 fclean:clean
-	@rm *.a *.exe
+	@rm $(NAME) $(PROGRAM)
 
 re:	fclean all
 
