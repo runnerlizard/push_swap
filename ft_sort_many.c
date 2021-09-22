@@ -22,14 +22,14 @@ static void ft_move(int **stack, int middle)
         if (i > 0)
         {
             while (i-- > 1)
-                ft_ra(stack);
-            ft_pb(stack);
+                ft_printf("%s", ft_ra(stack));
+            ft_printf("%s", ft_pb(stack));
         }
         else
         {
             while (i-- >= -stack[0][0])
-                ft_rra(stack);
-            ft_pb(stack);
+                ft_printf("%s", ft_rra(stack));
+            ft_printf("%s", ft_pb(stack));
         }
     }
 }

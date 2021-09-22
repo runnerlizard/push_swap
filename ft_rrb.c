@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int ft_rrb (int **stack)
+char *ft_rrb (int **stack)
 {
 	int i;
 	
@@ -11,6 +11,5 @@ int ft_rrb (int **stack)
 	stack[2][0]++;
 	i = stack[2][0];
 	stack[2][i] = 10;
-	ft_printf("rrb\n");
-	return (0);
+	return ("rrb\n");
 }

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int ft_sa (int **stack)
+char *ft_sa (int **stack)
 {
 	int i;
 	
@@ -10,6 +10,5 @@ int ft_sa (int **stack)
 	stack[2][0]++;
 	i = stack[2][0];
 	stack[2][i] = 1;
-	ft_printf("sa\n");
-	return (0);
+	return ("sa\n");
 }
