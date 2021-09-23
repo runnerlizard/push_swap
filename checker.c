@@ -1,7 +1,32 @@
-#include "push_swap.h"
-#include <stdio.h>
+#include "checker.h"
 
-#define _CRT_SECURE_NO_WARNINGS
+static int ft_implement(int **stack, char *s)
+{
+	if (ft_strcmp(s, 'sa') == 1)
+		ft_sa(stack);
+	else if (ft_strcmp(s, 'sb') == 1)
+		ft_sb(stack);
+	else if (ft_strcmp(s, 'ss') == 1)
+		ft_ss(stack);
+	else if (ft_strcmp(s, 'ra') == 1)
+		ft_ra(stack);
+	else if (ft_strcmp(s, 'rb') == 1)
+		ft_rb(stack);
+	else if (ft_strcmp(s, 'rra') == 1)
+		ft_rra(stack);
+	else if (ft_strcmp(s, 'rrb') == 1)
+		ft_rrb(stack);
+	else if (ft_strcmp(s, 'rrr') == 1)
+		ft_rrr(stack);
+	else if (ft_strcmp(s, 'rr') == 1)
+		ft_rr(stack);
+	else if (ft_strcmp(s, 'pa') == 1)
+		ft_pa(stack);
+	else if (ft_strcmp(s, 'pb') == 1)
+		ft_pb(stack);
+	else
+		return (-1);
+}
 
 static int	ft_replace (int *a)
 {
@@ -65,11 +90,11 @@ int main (int argc, char **argv)
 	stack[2] = (int *)malloc(sizeof(int) * 50);
 	stack[1][0] = 0;
 	stack[2][0] = 0;
-    ft_printf("Input commands: pa pb ra rb rr rra rrb rrr sa sb ss\nInput something else for finish\n")
-    while (true)
+    ft_printf("Input commands: pa pb ra rb rr rra rrb rrr sa sb ss\nInput something else for finish\n");
+    while (1 == 1)
     {
         scanf("%s", s);
-        if (ft_implement(stack, s) == -1) // to do
+        if (ft_implement(stack, s) == -1)
             break;
     }
     if ((ft_is_sorted(stack[0], stack[0][0]) == 1) && (stack[1][0] == 0))
