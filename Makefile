@@ -42,9 +42,6 @@ $(NAME_BONUS): $(OBJ_BONUS)
 .c.o:	$(LIST)
 	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
-.c.o:	$(LIST_BONUS)
-	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
-
 clean:
 	@rm $(OBJ) $(OBJ_BONUS)
 
