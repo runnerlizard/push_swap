@@ -44,13 +44,13 @@ static int ft_four4(int **stack)
 
 int ft_sort_four(int **stack)
 {
-   if ((stack[0][1] > stack[0][2]) && (stack[0][1] > stack[0][3]) && (stack[0][1] > stack[0][4]))
+   if ((stack[0][1] < stack[0][2]) && (stack[0][1] < stack[0][3]) && (stack[0][1] < stack[0][4]))
       ft_four1(stack);
-   if ((stack[0][1] < stack[0][2]) && (stack[0][2] > stack[0][3]) && (stack[0][2] > stack[0][4]))
+   if ((stack[0][1] > stack[0][2]) && (stack[0][2] < stack[0][3]) && (stack[0][2] < stack[0][4]))
       ft_four2(stack);
-   if ((stack[0][3] > stack[0][2]) && (stack[0][1] < stack[0][3]) && (stack[0][3] > stack[0][4]))
+   if ((stack[0][3] < stack[0][2]) && (stack[0][1] > stack[0][3]) && (stack[0][3] < stack[0][4]))
       ft_four3(stack);
-   if ((stack[0][4] > stack[0][2]) && (stack[0][4] > stack[0][3]) && (stack[0][1] < stack[0][4]))
+   if ((stack[0][4] < stack[0][2]) && (stack[0][4] < stack[0][3]) && (stack[0][1] > stack[0][4]))
       ft_four4(stack);
    return(0);
 }

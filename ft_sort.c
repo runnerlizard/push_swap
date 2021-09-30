@@ -2,6 +2,7 @@
 
 int ft_sort(int **stack)
 {
+	ft_print_stack(stack);
 	if (ft_is_sorted(stack[0], stack[0][0]) == 1)
 		return (0);
 	else if (stack[0][0] == 2)
