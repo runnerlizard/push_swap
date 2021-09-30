@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	ft_split_atoi(int *a, char const *str)
+int	ft_split_atoi(int *a, char *str)
 {
 	int				sign;
 	int				i;
@@ -35,7 +35,7 @@ int	ft_split_atoi(int *a, char const *str)
 		i = 0;
 		while ((i++ < j - 1) && (i != j))
 			if ((a[i] == a[j]) && (j != i))
-				return (ft_printf("Error3\n %d - %d    %d - %d\n", a[i], i, a[j], j));
+				return (ft_printf("Error3\n"));
 	}
 	if (a[0] < 2)
 		return (1911);

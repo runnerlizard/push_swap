@@ -2,30 +2,29 @@
 
 static int ft_implement(int **stack, char *s)
 {
-	if (ft_strcmp(s, 'sa') == 1)
+	if (ft_memcmp(s, "sa") == 0)
 		ft_sa(stack);
-	else if (ft_strcmp(s, 'sb') == 1)
+	else if (ft_memcmp(s, "sb") == 0)
 		ft_sb(stack);
-	else if (ft_strcmp(s, 'ss') == 1)
+	else if (ft_memcmp(s, "ss") == 0)
 		ft_ss(stack);
-	else if (ft_strcmp(s, 'ra') == 1)
+	else if (ft_memcmp(s, "ra") == 0)
 		ft_ra(stack);
-	else if (ft_strcmp(s, 'rb') == 1)
+	else if (ft_memcmp(s, "rb") == 0)
 		ft_rb(stack);
-	else if (ft_strcmp(s, 'rra') == 1)
+	else if (ft_memcmp(s, "rra") == 0)
 		ft_rra(stack);
-	else if (ft_strcmp(s, 'rrb') == 1)
+	else if (ft_memcmp(s, "rrb") == 0)
 		ft_rrb(stack);
-	else if (ft_strcmp(s, 'rrr') == 1)
+	else if (ft_memcmp(s, "rrr") == 0)
 		ft_rrr(stack);
-	else if (ft_strcmp(s, 'rr') == 1)
+	else if (ft_memcmp(s, "rr") == 0)
 		ft_rr(stack);
-	else if (ft_strcmp(s, 'pa') == 1)
+	else if (ft_memcmp(s, "pa") == 0)
 		ft_pa(stack);
-	else if (ft_strcmp(s, 'pb') == 1)
+	else if (ft_memcmp(s, "pb") == 0)
 		ft_pb(stack);
-	else
-		return (-1);
+	return (-1);
 }
 
 static int	ft_replace (int *a)
@@ -80,8 +79,9 @@ static int	ft_input (char **agrv, int *a)
 int main (int argc, char **argv)
 {
 	int		**stack;
-    char    *s[3];
+    char    *s;
 
+	s = ft_calloc(3, sizeof(char));
 	stack = (int **)malloc(3 * sizeof(int *));
 	stack[0] = (int *)malloc(argc * sizeof(int));
 	if ((argc == 1) || (ft_input(&argv[1], stack[0]) != -1))
@@ -93,10 +93,13 @@ int main (int argc, char **argv)
     ft_printf("Input commands: pa pb ra rb rr rra rrb rrr sa sb ss\nInput something else for finish\n");
     while (1 == 1)
     {
+		s = ft_calloc(10, sizeof(char));
         scanf("%s", s);
         if (ft_implement(stack, s) == -1)
             break;
+		free (s);
     }
+	free(s);
     if ((ft_is_sorted(stack[0], stack[0][0]) == 1) && (stack[1][0] == 0))
         return (ft_printf("OK"));
     else
