@@ -1,4 +1,4 @@
-#include "checker.h"
+#include "push_swap.h"
 
 static int ft_implement(int **stack, char *s)
 {

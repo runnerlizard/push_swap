@@ -12,12 +12,14 @@ static void ft_move_to_a(int **stack, int i)
         if (stack[1][1] > middle)
         {
             ft_printf("%s", ft_pa(stack));
+            stack[3][i + 1]--;
             stack[3][i]--;
         }
         else if (stack[1][2] > middle)
         {
             ft_printf("%s", ft_sb(stack));
             ft_printf("%s", ft_pa(stack));
+            stack[3][i + 1]--;
             stack[3][i]--;
         }
         else
@@ -27,7 +29,6 @@ static void ft_move_to_a(int **stack, int i)
         }
         j--;
     }
-    stack[3][i] = stack[3][i + 2];
     while (stack[3][i + 2]-- > 0)
         ft_printf("%s", ft_rrb(stack));
     stack[3][0]++;

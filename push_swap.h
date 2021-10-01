@@ -12,6 +12,7 @@
 int				fl (char c, unsigned long d);
 void			*ft_calloc(size_t n, size_t s);
 int				ft_count (int d);
+int				ft_count_argv (char **argv);
 int			  	ft_hex (unsigned long n, int registr);
 int				ft_hex_length (unsigned long n);
 int				ft_hub_int (char c, int d);
@@ -32,6 +33,7 @@ int				ft_putpercent(char c);
 int				ft_putstr_fd (char *s, int fd);
 char			*ft_ra (int **stack);
 char			*ft_rb (int **stack);
+int				ft_replace (int **stack, int c);
 char			*ft_rr (int **stack);
 char			*ft_rra (int **stack);
 char			*ft_rrb (int **stack);
