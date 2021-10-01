@@ -37,20 +37,20 @@ static int	ft_input (char **agrv, int **stack)
 	if (ft_split_atoi(stack[1], s) != 0)
 		return(0);
 	i = 0;
-	ft_replace(stack, stack[1][0]);
+	ft_replace(stack);
 	return (-1);
 }
 
-static int ft_malloc_stack2(int **stack)
+static int ft_malloc_stack2(int **stack, int i)
 {
-	if (stack[2] == NULL)
+	if ((stack[2] = (int *)malloc(i * 30 * sizeof(int))) == NULL)
 	{
 		free(stack[0]);
 		free(stack[1]);
 		free(stack);
 		return (88);
 	}
-	if (stack[3] == NULL)
+	if ((stack[3] = (int *)malloc(10 * sizeof(int))) == NULL)
 	{
 		free(stack[0]);
 		free(stack[1]);
@@ -61,32 +61,32 @@ static int ft_malloc_stack2(int **stack)
 	return (0);
 }
 
-static int ft_malloc_stack(int **stack)
+static int ft_malloc_stack(int **stack, char **argv)
 {
-	stack = (int **)malloc(4 * sizeof(int *));
-	if (stack == NULL)
-		return (88);
-	stack[0] = (int *)malloc(ft_count_argv(argv) * sizeof(int));
+	int	i;
+
+	i = ft_count_argv(argv) + 1;
+	stack[0] = (int *)malloc(i * sizeof(int));
 	if (stack[0] == NULL)
 	{
 		free(stack);
 		return (88);
 	}
-	stack[1] = (int *)malloc(ft_count_argv(argv) * sizeof(int));
+	stack[1] = (int *)malloc(i * sizeof(int));
 	if (stack[1] == NULL)
 	{
 		free(stack[0]);
 		free(stack);
 		return (88);
 	}
-	if ((argc == 1) || (ft_input(&argv[1], stack) != -1))
+	if (!(argv[1]) || (ft_input(&argv[1], stack) != -1))
 	{
 		free(stack[0]);
 		free(stack[1]);
 		free(stack);
 		return (1911);
 	}
-	return (ft_malloc_stack2(stack));
+	return (ft_malloc_stack2(stack, i));
 }
 
 int main (int argc, char **argv)
@@ -94,14 +94,17 @@ int main (int argc, char **argv)
 	int		**stack;
 	int		i;
 
-	i = ft_malloc_stack(stack);
+	if ((stack = (int **)malloc(4 * sizeof(int *))) == NULL)
+		return (88);
+	i = ft_malloc_stack(stack, argv);
 	if (i == 88)
 		return(ft_printf("Malloc failed!\n"));
-	else if (i == 1911)
+	else if ((i == 1911) || (argc == 1))
 		return(0);
 	stack[1][0] = 0;
 	stack[2][0] = 0;
 	ft_movescount(stack);
 	ft_sort(stack);
+	ft_print_stack(stack);
 	return (0);
 }

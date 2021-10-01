@@ -7,10 +7,10 @@ int	ft_count_argv(char **argv)
 	int	n;
 
 	i = 0;
-	j = 0;
 	n = 0;
-	while (argv[i++])
+	while (argv[i++ + 1])
 	{
+		j = 0;
 		while ((argv[i][j] == ' ') && (argv[i][j]))
 			j++;
 		while ((argv[i][j] != ' ') && (argv[i][j]))

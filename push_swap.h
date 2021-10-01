@@ -33,7 +33,7 @@ int				ft_putpercent(char c);
 int				ft_putstr_fd (char *s, int fd);
 char			*ft_ra (int **stack);
 char			*ft_rb (int **stack);
-int				ft_replace (int **stack, int c);
+int				ft_replace (int **stack);
 char			*ft_rr (int **stack);
 char			*ft_rra (int **stack);
 char			*ft_rrb (int **stack);

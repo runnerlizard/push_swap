@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	ft_replace (int **stack, int c)
+int	ft_replace (int **stack)
 {
 	int	i;
 	int	j;
