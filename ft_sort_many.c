@@ -46,9 +46,7 @@ int ft_sort_many(int **stack)
         middle = middle + stack[3][i++];
         ft_move(stack, middle);
     }
-    ft_print_stack(stack);
     ft_sort_rem(stack, stack[0][0]);
-    ft_print_stack(stack);
     ft_sort_many_add(stack);
     return (0);
 }

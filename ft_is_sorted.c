@@ -8,7 +8,7 @@ int ft_is_sorted (int *a, int n)
 	i = 0;
 	count = 0;
 	while (i++ < n - 1)
-		if (a[i] < a[i + 1])
+		if (a[i] - a[i + 1] == -1)
 			count++;
 	if (count == n - 1)
 		return (1);

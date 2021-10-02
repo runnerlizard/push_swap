@@ -7,6 +7,9 @@ static void ft_move_to_a(int **stack, int i)
 
     middle = (2 * stack[1][0] - stack[3][i]) / 2;
     j = stack[3][i];
+    stack[3][i + 3] = j / 2 + j % 2;
+    stack[3][i + 1] = 0;
+    stack[3][i + 2] = 0;
     while (j-- > 0)
     {
         if (stack[1][1] > middle)
@@ -22,7 +25,7 @@ static void ft_move_to_a(int **stack, int i)
             stack[3][i + 1]--;
             stack[3][i]--;
         }
-        else if (j > 0)
+        else if (stack[3][i + 3] > - stack[3][i + 1])
         {
             ft_printf("%s", ft_rb(stack));
             stack[3][i + 2]++;
@@ -83,6 +86,7 @@ static int ft_move_to_b(int **stack, int i)
     stack[3][i + 1] = j;
     stack[3][i] = 0;
     stack[3][i + 2] = 0;
+    stack[3][i + 3] = - j / 2 - j % 2;
     while (j++ < 0)
         if (stack[0][1] < middle)
         {
@@ -97,7 +101,7 @@ static int ft_move_to_b(int **stack, int i)
             stack[3][i + 1]++;
             stack[3][i]++;
         }
-        else
+        else if (stack[3][i + 3] > stack[3][i])
         {
             ft_printf("%s", ft_ra(stack));
             stack[3][i + 2]++;
@@ -105,6 +109,56 @@ static int ft_move_to_b(int **stack, int i)
     while (stack[3][i + 2]-- > 0)
         ft_printf("%s", ft_rra(stack));
     stack[3][0]++;
+    return (0);
+}
+
+static int ft_move_four(int **stack)
+{
+    if ((stack[1][1] <= stack[1][0] - 2) && (stack[1][2] <= stack[1][0] - 2))
+    {
+        ft_printf("%s", ft_rb(stack));
+        ft_printf("%s", ft_rb(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rrb(stack));
+        ft_printf("%s", ft_rrb(stack));
+    }
+    else if ((stack[1][1] <= stack[1][0] - 2) && (stack[1][2] > stack[1][0] - 2))
+    {
+        ft_printf("%s", ft_rb(stack));
+        ft_printf("%s", ft_pa(stack));
+        if (stack[1][1] < stack[1][2])
+            ft_printf("%s", ft_sb(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rrb(stack));
+    }
+    else if ((stack[1][1] > stack[1][0] - 2) && (stack[1][2] <= stack[1][0] - 2))
+    {
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rb(stack));
+        if (stack[1][1] < stack[1][2])
+            ft_printf("%s", ft_sb(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rrb(stack));
+    }
+    else
+    {
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_pa(stack));
+    }
+    if (stack[0][1] > stack[0][2])
+    {
+        if (stack[1][1] < stack[1][2])
+            ft_printf("%s", ft_ss(stack));
+        else
+            ft_printf("%s", ft_sa(stack));
+    }
+    else if (stack[1][1] < stack[1][2])
+        ft_printf("%s", ft_sb(stack));
+    ft_printf("%s", ft_pa(stack));
+    ft_printf("%s", ft_pa(stack));
+    stack[3][stack[3][0]] = 0;
+    stack[3][0]--;
     return (0);
 }
 
@@ -129,13 +183,17 @@ int ft_sort_many_add(int **stack)
         {
             return(0);
         }
-        if (stack[3][i] > 3)
+        if (stack[3][i] > 4)
             ft_move_to_a(stack, i);
+        else if (stack[3][i] > 3)
+            ft_move_four(stack);
         else if (stack[3][i] > 0)
             ft_move_to_a_and_sort(stack, i);
-        else if (stack[3][i] > -4)
+        while (stack[0][-stack[3][i]] - stack[0][-stack[3][i + 1]] == -1)
+            stack[3][i]++;
+        if ((stack[3][i] > -4) && (stack[3][i] < 0))
             ft_sort_a(stack, i);
-        else
+        else if (stack[3][i] < 0)
             ft_move_to_b(stack, i);
     }
     return (l);
