@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_nearest.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/02 15:17:50 by cluco             #+#    #+#             */
+/*   Updated: 2021/10/02 15:18:26 by cluco            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int ft_nearest(int *a, int middle)
+int	ft_nearest(int *a, int middle)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = a[0] + 1;
@@ -14,5 +26,5 @@ int ft_nearest(int *a, int middle)
 		if (a[j] <= middle)
 			return (-j);
 	}
-	return(0);
+	return (0);
 }

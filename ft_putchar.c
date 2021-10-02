@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/02 15:23:30 by cluco             #+#    #+#             */
+/*   Updated: 2021/10/02 15:23:57 by cluco            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_putpercent(char c)
@@ -39,7 +51,7 @@ int	ft_putstr_fd(char *s, int fd)
 	return (i);
 }
 
-int	ft_count (int d)
+int	ft_count(int d)
 {
 	static int	count;
 	int			tmp;
