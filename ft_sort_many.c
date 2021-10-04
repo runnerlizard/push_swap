@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void ft_sort_rem(int **stack, int j)
+void    ft_sort_rem(int **stack, int j)
 {
     if (j == 2)
         ft_sort_two(stack);
@@ -32,6 +32,61 @@ static void ft_move(int **stack, int middle)
             ft_printf("%s", ft_pb(stack));
         }
     }
+}
+
+static void    ft_move3(int **stack)
+{
+    if ((stack[1][1] > stack[1][0] - 2) && (stack[1][2] <= stack[1][0] - 2))
+    {
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rb(stack));
+        if (stack[1][1] < stack[1][2])
+            ft_printf("%s", ft_sb(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rrb(stack));
+    }
+    else
+    {
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_pa(stack));
+    }
+    if (stack[0][1] > stack[0][2])
+    {
+        if (stack[1][1] < stack[1][2])
+            ft_printf("%s", ft_ss(stack));
+        else
+            ft_printf("%s", ft_sa(stack));
+    }
+    else if (stack[1][1] < stack[1][2])
+        ft_printf("%s", ft_sb(stack));
+    ft_printf("%s", ft_pa(stack));
+    ft_printf("%s", ft_pa(stack));
+}
+
+void ft_move_four(int **stack)
+{
+    if ((stack[1][1] <= stack[1][0] - 2) && (stack[1][2] <= stack[1][0] - 2))
+    {
+        ft_printf("%s", ft_rb(stack));
+        ft_printf("%s", ft_rb(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rrb(stack));
+        ft_printf("%s", ft_rrb(stack));
+    }
+    else if ((stack[1][1] <= stack[1][0] - 2) && (stack[1][2] > stack[1][0] - 2))
+    {
+        ft_printf("%s", ft_rb(stack));
+        ft_printf("%s", ft_pa(stack));
+        if (stack[1][1] < stack[1][2])
+            ft_printf("%s", ft_sb(stack));
+        ft_printf("%s", ft_pa(stack));
+        ft_printf("%s", ft_rrb(stack));
+    }
+    else
+        ft_move3(stack);
+    stack[3][stack[3][0]] = 0;
+    stack[3][0]--;
 }
 
 int ft_sort_many(int **stack)
