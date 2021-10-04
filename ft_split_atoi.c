@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split_atoi.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/05 02:15:50 by cluco             #+#    #+#             */
+/*   Updated: 2021/10/05 02:15:51 by cluco            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int ft_check_error(int *a, char *str, int i)
+static int	ft_check_error(int *a, char *str, int i)
 {
 	int				sign;
 	long long int	k;
@@ -25,8 +37,6 @@ static int ft_check_error(int *a, char *str, int i)
 	return (i);
 }
 
-
-
 int	ft_split_atoi(int *a, char *str)
 {
 	int				i;
@@ -36,8 +46,11 @@ int	ft_split_atoi(int *a, char *str)
 	i = 0;
 	a[0] = 0;
 	while (str[i])
-		if ((i = ft_check_error(a, str, i)) < 0)
+	{
+		i = ft_check_error(a, str, i);
+		if (i < 0)
 			return (1911);
+	}
 	j = a[0] + 1;
 	while (j-- > 1)
 	{

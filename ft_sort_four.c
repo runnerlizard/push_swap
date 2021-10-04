@@ -6,7 +6,7 @@
 /*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:29:24 by cluco             #+#    #+#             */
-/*   Updated: 2021/10/02 15:41:47 by cluco            ###   ########.fr       */
+/*   Updated: 2021/10/05 02:06:07 by cluco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,17 @@ static int  ft_four4(int **stack)
 
 int   ft_sort_four(int **stack)
 {
-   if ((stack[0][1] < stack[0][2]) && (stack[0][1] < stack[0][3]) && (stack[0][1] < stack[0][4]))
+   if ((stack[0][1] < stack[0][2]) && (stack[0][1] < stack[0][3]) &&
+   (stack[0][1] < stack[0][4]))
       ft_four1(stack);
-   if ((stack[0][1] > stack[0][2]) && (stack[0][2] < stack[0][3]) && (stack[0][2] < stack[0][4]))
+   if ((stack[0][1] > stack[0][2]) && (stack[0][2] < stack[0][3]) &&
+   (stack[0][2] < stack[0][4]))
       ft_four2(stack);
-   if ((stack[0][3] < stack[0][2]) && (stack[0][1] > stack[0][3]) && (stack[0][3] < stack[0][4]))
+   if ((stack[0][3] < stack[0][2]) && (stack[0][1] > stack[0][3]) &&
+   (stack[0][3] < stack[0][4]))
       ft_four3(stack);
-   if ((stack[0][4] < stack[0][2]) && (stack[0][4] < stack[0][3]) && (stack[0][1] > stack[0][4]))
+   if ((stack[0][4] < stack[0][2]) && (stack[0][4] < stack[0][3]) &&
+   (stack[0][1] > stack[0][4]))
       ft_four4(stack);
    return (0);
 }

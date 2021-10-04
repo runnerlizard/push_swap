@@ -6,7 +6,7 @@
 /*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:21:50 by cluco             #+#    #+#             */
-/*   Updated: 2021/10/02 15:22:24 by cluco            ###   ########.fr       */
+/*   Updated: 2021/10/05 01:46:47 by cluco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	ft_print_stack(int **stack)
 	while (i <= stack[1][0])
 		ft_printf("   %d   ", stack[1][i++]);
 	i = 0;
-	/*ft_printf("\nactions: ");
+	ft_printf("\nactions: ");
 	while (i <= stack[2][0])
-		ft_printf("%d  ", stack[2][i++]);*/
+		ft_printf("%d  ", stack[2][i++]);
 	ft_printf("\nportions:");
 	i = 0;
 	while (i <= stack[3][0])

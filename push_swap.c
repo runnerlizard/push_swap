@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/05 02:17:46 by cluco             #+#    #+#             */
+/*   Updated: 2021/10/05 02:21:25 by cluco            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int ft_movescount(int **stack)
+static int	ft_movescount(int **stack)
 {
-	int i;
+	int	i;
 	int	j;
 
 	stack[3][0] = 0;
@@ -18,12 +30,12 @@ static int ft_movescount(int **stack)
 	return (0);
 }
 
-static int	ft_input (char **agrv, int **stack)
+static int	ft_input(char **agrv, int **stack)
 {
 	int		i;
 	int		j;
 	char	*s;
-	
+
 	i = 1;
 	j = 100;
 	while (agrv[i])
@@ -37,7 +49,7 @@ static int	ft_input (char **agrv, int **stack)
 	if (ft_split_atoi(stack[1], s) != 0)
 	{
 		free(s);
-		return(0);
+		return (0);
 	}
 	free(s);
 	i = 0;
@@ -45,16 +57,18 @@ static int	ft_input (char **agrv, int **stack)
 	return (-1);
 }
 
-static int ft_malloc_stack2(int **stack, int i)
+static int	ft_malloc_stack2(int **stack, int i)
 {
-	if ((stack[2] = (int *)malloc(i * 30 * sizeof(int))) == NULL)
+	stack[2] = (int *)malloc(i * 30 * sizeof(int));
+	if (stack[2] == NULL)
 	{
 		free(stack[0]);
 		free(stack[1]);
 		free(stack);
 		return (88);
 	}
-	if ((stack[3] = (int *)malloc(10 * sizeof(int))) == NULL)
+	stack[3] = (int *)malloc(10 * sizeof(int));
+	if (stack[3] == NULL)
 	{
 		free(stack[0]);
 		free(stack[1]);
@@ -65,7 +79,7 @@ static int ft_malloc_stack2(int **stack, int i)
 	return (0);
 }
 
-static int ft_malloc_stack(int **stack, char **argv)
+static int	ft_malloc_stack(int **stack, char **argv)
 {
 	int	i;
 
@@ -93,18 +107,19 @@ static int ft_malloc_stack(int **stack, char **argv)
 	return (ft_malloc_stack2(stack, i));
 }
 
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		**stack;
 	int		i;
 
-	if ((stack = (int **)malloc(4 * sizeof(int *))) == NULL)
+	stack = (int **)malloc(4 * sizeof(int *));
+	if (stack == NULL)
 		return (88);
 	i = ft_malloc_stack(stack, argv);
 	if (i == 88)
-		return(ft_printf("Malloc failed!\n"));
+		return (ft_printf("Malloc failed!\n"));
 	if ((i == 1911) || (argc == 1))
-		return(0);
+		return (0);
 	stack[1][0] = 0;
 	stack[2][0] = 0;
 	ft_movescount(stack);

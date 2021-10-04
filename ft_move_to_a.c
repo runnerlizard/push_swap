@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_move_to_a.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/05 01:39:47 by cluco             #+#    #+#             */
+/*   Updated: 2021/10/05 01:45:34 by cluco            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_move2(int **stack)
@@ -51,7 +63,7 @@ static void	ft_move1(int **stack, int i, int middle)
 		stack[3][i + 1]--;
 		stack[3][i]--;
 	}
-	else if (stack[3][i + 3] > - stack[3][i + 1])
+	else if (stack[3][i + 3] > -stack[3][i + 1])
 	{
 		ft_printf("%s", ft_rb(stack));
 		stack[3][i + 2]++;
@@ -67,8 +79,8 @@ void	ft_sort_a(int **stack, int i)
 
 void	ft_move_to_a(int **stack, int i)
 {
-	int middle;
-	int j;
+	int	middle;
+	int	j;
 
 	middle = (2 * stack[1][0] - stack[3][i]) / 2;
 	j = stack[3][i];
