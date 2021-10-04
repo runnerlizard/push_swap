@@ -44,6 +44,7 @@ char			*ft_rrr (int **stack);
 char			*ft_sa (int **stack);
 char			*ft_sb (int **stack);
 int				ft_sort (int **stack);
+void            ft_sort4(int **stack);
 void			ft_sort_a(int **stack, int i);
 int				ft_sort_four(int **stack);
 int				ft_sort_many_add(int **stack);

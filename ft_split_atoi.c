@@ -13,16 +13,16 @@ static int ft_check_error(int *a, char *str, int i)
 		if (str[i++] == '-')
 			sign = -1;
 	if ((str[i] < 48) || (str[i] > 57))
-		return (ft_printf("Error\n"));
+		return (ft_printf("Error\n") - 100);
 	k = 0;
 	while ((str[i] > 47) && (str[i] < 58))
 	{
 		k = k * 10 + str[i++] - 48;
 		if ((k > INT32_MAX) || (k < INT32_MIN))
-			return (ft_printf("Error\n"));
+			return (ft_printf("Error\n") - 100);
 	}
 	a[a[0]] = k * sign;
-	return (0);
+	return (i);
 }
 
 
@@ -36,9 +36,9 @@ int	ft_split_atoi(int *a, char *str)
 	i = 0;
 	a[0] = 0;
 	while (str[i])
-		if ((i = ft_check_error(a, str, i)) != 0);
+		if ((i = ft_check_error(a, str, i)) < 0)
 			return (1911);
-	j = a[0];
+	j = a[0] + 1;
 	while (j-- > 1)
 	{
 		i = 0;

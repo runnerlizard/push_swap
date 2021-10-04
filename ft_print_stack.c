@@ -25,9 +25,9 @@ int	ft_print_stack(int **stack)
 	while (i <= stack[1][0])
 		ft_printf("   %d   ", stack[1][i++]);
 	i = 0;
-	ft_printf("\nactions: ");
+	/*ft_printf("\nactions: ");
 	while (i <= stack[2][0])
-		ft_printf("%d  ", stack[2][i++]);
+		ft_printf("%d  ", stack[2][i++]);*/
 	ft_printf("\nportions:");
 	i = 0;
 	while (i <= stack[3][0])

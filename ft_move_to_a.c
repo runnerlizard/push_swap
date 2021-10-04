@@ -36,7 +36,7 @@ void	ft_move_to_a_and_sort(int **stack, int i)
 	stack[3][0]--;
 }
 
-static void	ft_move1(int **stack, int i)
+static void	ft_move1(int **stack, int i, int middle)
 {
 	if (stack[1][1] > middle)
 	{
@@ -76,7 +76,7 @@ void	ft_move_to_a(int **stack, int i)
 	stack[3][i + 1] = 0;
 	stack[3][i + 2] = 0;
 	while (j-- > 0)
-		ft_move1(stack, i);
+		ft_move1(stack, i, middle);
 	while (stack[3][i + 2]-- > 0)
 		ft_printf("%s", ft_rrb(stack));
 	stack[3][0]++;

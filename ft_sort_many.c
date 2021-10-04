@@ -1,15 +1,5 @@
 #include "push_swap.h"
 
-void    ft_sort_rem(int **stack, int j)
-{
-    if (j == 2)
-        ft_sort_two(stack);
-    else if (j == 3)
-        ft_sort_three(stack);
-    else
-        ft_sort_four(stack);
-}
-
 static void ft_move(int **stack, int middle)
 {
     int i;
@@ -34,7 +24,7 @@ static void ft_move(int **stack, int middle)
     }
 }
 
-static void    ft_move3(int **stack)
+static void ft_move4(int **stack)
 {
     if ((stack[1][1] > stack[1][0] - 2) && (stack[1][2] <= stack[1][0] - 2))
     {
@@ -45,11 +35,17 @@ static void    ft_move3(int **stack)
         ft_printf("%s", ft_pa(stack));
         ft_printf("%s", ft_rrb(stack));
     }
-    else
+    else if ((stack[1][1] > stack[1][0] - 2) && (stack[1][2] > stack[1][0] - 2))
     {
         ft_printf("%s", ft_pa(stack));
         ft_printf("%s", ft_pa(stack));
     }
+}
+
+static void    ft_move3(int **stack)
+{
+    if (stack[3][stack[3][0] + 1] == 0)
+        ft_move4(stack);
     if (stack[0][1] > stack[0][2])
     {
         if (stack[1][1] < stack[1][2])
@@ -64,7 +60,9 @@ static void    ft_move3(int **stack)
 }
 
 void ft_move_four(int **stack)
-{
+{   
+    if (stack[3][stack[3][0]] == 0)
+        ft_move4(stack);
     if ((stack[1][1] <= stack[1][0] - 2) && (stack[1][2] <= stack[1][0] - 2))
     {
         ft_printf("%s", ft_rb(stack));
@@ -73,6 +71,7 @@ void ft_move_four(int **stack)
         ft_printf("%s", ft_pa(stack));
         ft_printf("%s", ft_rrb(stack));
         ft_printf("%s", ft_rrb(stack));
+        stack[3][stack[3][0] + 1] = 1;
     }
     else if ((stack[1][1] <= stack[1][0] - 2) && (stack[1][2] > stack[1][0] - 2))
     {
@@ -82,9 +81,9 @@ void ft_move_four(int **stack)
             ft_printf("%s", ft_sb(stack));
         ft_printf("%s", ft_pa(stack));
         ft_printf("%s", ft_rrb(stack));
+        stack[3][stack[3][0] + 1] = 1;
     }
-    else
-        ft_move3(stack);
+    ft_move3(stack);
     stack[3][stack[3][0]] = 0;
     stack[3][0]--;
 }
@@ -102,6 +101,7 @@ int ft_sort_many(int **stack)
         ft_move(stack, middle);
     }
     ft_sort_rem(stack, stack[0][0]);
+    stack[3][stack[3][0] + 1] = 0;
     ft_sort_many_add(stack);
     return (0);
 }

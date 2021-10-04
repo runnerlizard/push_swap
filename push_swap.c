@@ -25,9 +25,9 @@ static int	ft_input (char **agrv, int **stack)
 	char	*s;
 	
 	i = 1;
-	j = 1;
+	j = 100;
 	while (agrv[i])
-		j = j + ft_strlen(agrv[i++]);
+		j = j + ft_strlen(agrv[i++]) + 1;
 	s = (char *)malloc(j * sizeof(char));
 	s[0] = 0;
 	s = ft_strjoin(s, agrv[0]);
@@ -35,7 +35,11 @@ static int	ft_input (char **agrv, int **stack)
 	while (agrv[i])
 		s = ft_strjoin(s, agrv[i++]);
 	if (ft_split_atoi(stack[1], s) != 0)
+	{
+		free(s);
 		return(0);
+	}
+	free(s);
 	i = 0;
 	ft_replace(stack);
 	return (-1);
@@ -99,11 +103,16 @@ int main (int argc, char **argv)
 	i = ft_malloc_stack(stack, argv);
 	if (i == 88)
 		return(ft_printf("Malloc failed!\n"));
-	else if ((i == 1911) || (argc == 1))
+	if ((i == 1911) || (argc == 1))
 		return(0);
 	stack[1][0] = 0;
 	stack[2][0] = 0;
 	ft_movescount(stack);
 	ft_sort(stack);
+	free(stack[0]);
+	free(stack[1]);
+	free(stack[2]);
+	free(stack[3]);
+	free(stack);
 	return (0);
 }
