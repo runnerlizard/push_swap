@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	ft_ra_until_top(int **stack, int i)
+static void	ft_ra_until_top(int **stack, int i)
 {
 	int	max;
 
@@ -25,10 +25,24 @@ void	ft_ra_until_top(int **stack, int i)
 		}
 		ft_sort_two(stack);
 	}
-	else
+}
+
+static void	ft_rb_until_top(int **stack, int i)
+{
+	int	max;
+
+	max = -10;
+	while (i-- > 0)
+		if (stack[1][stack[1][0] - i] == stack[0][0])
+			max = i;
+	while (max > 0)
 	{
-		
+		ft_printf("%s", ft_rrb(stack));
+		stack[3][stack[3][0] + 3]--;
+		if (stack[1][1] => stack[0][0] - 1)
+			ft_printf("%s", ft_pa(stack));
 	}
+	ft_sort_two(stack);
 }
 
 void	ft_move_five(int **stack)
@@ -61,12 +75,10 @@ void	ft_move_five(int **stack)
 		}
 	}
 	else
-	{
 		if (stack[0][stack[3][0] + 2] > 0)
 			ft_ra_until_top(stack, stack[0][stack[3][0] + 2]);
-	}
-		while (stack[1][1] != stack[1][0])
-		{
-			if (stack[1][1] > stack[1][0] - (stack[3][stack[3][0] + stack[3][stack[3][0] + 1]) / 2)
-		}
+		else if (stack[3][stack[3][0] + 3] > 0)
+			ft_rb_until_top(stack, stack[0][stack[3][0] + 2]);
+		else
+		
 }
