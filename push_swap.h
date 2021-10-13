@@ -6,7 +6,7 @@
 /*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 02:21:47 by cluco             #+#    #+#             */
-/*   Updated: 2021/10/11 19:08:32 by cluco            ###   ########.fr       */
+/*   Updated: 2021/10/05 02:30:01 by cluco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int				ft_is_sorted(int *a, int n);
 int				ft_isdigit(char *s);
 int				ft_nearest(int *a, int middle);
 int				ft_minus_first(int *a);
-void			ft_move_five(int **stack);
 void			ft_move_four(int **stack);
 void			ft_move_to_a(int **stack, int i);
 void			ft_move_to_a_and_sort(int **stack, int i);

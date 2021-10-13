@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+	
+		{
+			"name": "(lldb) Запустить",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/${workspaceFolderBasename}",
+			"args": ["1320635 1438383 1566461 1592191 1689606 1879705 1521207 1645909 1836494 1639383 898886 571843 1841236 1259422 1586044 39163 1155428 1041514 660787 14531 1116196 35026 684610 940888 118190 1630410 1441545 1996479 1499831 272670 1208187 603492 1572789 1219926 1918535 1591816 989700 1638718 1657859 1490380 1027887 367215 383881 1742768 1289586 1499130 679593 1533606 1111305 639875 1775622 916977 932095 1235109 1613440 1112957 138286 1632160 681387 1383782 1163614 1141954 994050 1703745 119223 1807861 1897282 1192118 312870 245473 1114407 1167458 1644390 1971333 517589 1699530 1389991 820433 1482477 1693441 946916 772711 999168 1283493 461637 1750540 1602358 1942008 1730566 92501 399774 1421998 1503321 1954775 798617 1217085 1712978 813923 582198 31546"],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [ { "name": "squid", "value": "clam" } ],
+			"externalConsole": true,
+			"MIMode": "lldb"
+		},
+		{
+			"name": "(lldb) Подключить",
+			"type": "cppdbg",
+			"request": "attach",
+			"program": "${workspaceFolder}/${workspaceFolderBasename}",
+			"processId": "${command:pickProcess}",
+			"MIMode": "lldb"
+		}
+    ]
+}

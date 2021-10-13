@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_many_add.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:39:08 by cluco             #+#    #+#             */
-/*   Updated: 2021/10/12 15:46:13 by marvin           ###   ########.fr       */
+/*   Updated: 2021/10/05 02:44:18 by cluco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,12 @@ int	ft_sort_many_add(int **stack)
 		i = stack[3][0];
 		if (stack[3][stack[3][0]] == 0)
 			return (0);
-		if (stack[3][i] > 11)
+		if (stack[3][i] > 4)
 		{
 			if (ft_is_sorted(stack[0], stack[0][0]) != 1)
 				return (-1);
 			ft_move_to_a(stack, i);
 		}
-		else if (stack[3][i] > 0)
-			ft_move_five(stack);
 		else if (stack[3][i] > 3)
 			ft_move_four(stack);
 		else if (stack[3][i] > 0)
@@ -91,6 +89,5 @@ int	ft_sort_many_add(int **stack)
 		else if (stack[3][i] < 0)
 			ft_move_to_b(stack, i);
 	}
-	ft_print_stack(stack);
 	return (0);
 }
