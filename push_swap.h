@@ -6,7 +6,7 @@
 /*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 02:21:47 by cluco             #+#    #+#             */
-/*   Updated: 2021/10/05 02:30:01 by cluco            ###   ########.fr       */
+/*   Updated: 2021/10/16 15:30:05 by cluco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 int				fl(char c, unsigned long d);
 void			*ft_calloc(size_t n, size_t s);
+int				ft_check_args(char **argv);
 int				ft_count(int d);
 int				ft_count_argv(char **argv);
 int				ft_hex(unsigned long n, int registr);

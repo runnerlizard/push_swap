@@ -6,7 +6,7 @@
 /*   By: cluco <cluco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 02:17:46 by cluco             #+#    #+#             */
-/*   Updated: 2021/10/05 02:21:25 by cluco            ###   ########.fr       */
+/*   Updated: 2021/10/16 15:31:03 by cluco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,17 @@ static int	ft_malloc_stack2(int **stack, int i)
 	stack[2] = (int *)malloc(i * 30 * sizeof(int));
 	if (stack[2] == NULL)
 	{
-		free(stack[0]);
 		free(stack[1]);
+		free(stack[0]);
 		free(stack);
 		return (88);
 	}
 	stack[3] = (int *)malloc(10 * sizeof(int));
 	if (stack[3] == NULL)
 	{
-		free(stack[0]);
-		free(stack[1]);
 		free(stack[2]);
+		free(stack[1]);
+		free(stack[0]);
 		free(stack);
 		return (88);
 	}
@@ -112,6 +112,7 @@ int	main(int argc, char **argv)
 	int		**stack;
 	int		i;
 
+	ft_check_args(argv);
 	stack = (int **)malloc(4 * sizeof(int *));
 	if (stack == NULL)
 		return (88);
@@ -124,10 +125,10 @@ int	main(int argc, char **argv)
 	stack[2][0] = 0;
 	ft_movescount(stack);
 	ft_sort(stack);
-	free(stack[0]);
-	free(stack[1]);
-	free(stack[2]);
 	free(stack[3]);
+	free(stack[2]);
+	free(stack[1]);
+	free(stack[0]);
 	free(stack);
-	return (0);
+	return (argc);
 }
